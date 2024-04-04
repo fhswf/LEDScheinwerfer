@@ -1,0 +1,16 @@
+Mindestens ein Leerzeichen
+zwischen Name und Parameter
+
+WLAN     1. WLAN
+ssid     MachinePark
+pass     EmbSysLAN
+
+WLAN     2. WLAN
+bssid    yyyyyyyy
+bpass    yyyyyyyy
+
+AP
+ap_name  SmartLED
+ap_pass
+ap_ip    2.2.2.1
+

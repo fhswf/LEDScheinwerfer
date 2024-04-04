@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="de">
+   <head>
+		<meta  charset="utf-8" name = "viewport" content = "width = device-width, initial-scale = 1.0, maximum-scale = 1.0, user-scalable=0">
+		<title>ESP8266 WebSocket Demo</title>
+		<style>
+			"body { background-color: #808080; font-family: Arial, Helvetica, Sans-Serif; Color: #000000; }"
+		</style>
+<script>
+var websock;
+window.onload=function()
+{
+  //websocket = 'ws://' + window.location.hostname + ':81/';
+  websock = new WebSocket('ws://' + '192.168.11.211' + ':81/');
+    websock.onopen = function(evt) { console.log('websock open'); };
+  websock.onclose = function(evt) { console.log('websock close'); };
+  websock.onerror = function(evt) { console.log(evt); };
+  websock.onmessage = function(evt) {
+    console.log(evt);
+  }
+  var msg="Hallo";
+}
+function buttonclick(e) {
+  websock.send(e.id);
+}
+</script>
+</head>
+<body>
+<h1>ESP8266 WebSocket Demo</h1>
+<div id="ledstatus"><b>LED</b></div>
+<button id="ledon"  type="button" onclick="buttonclick(this);">On</button> 
+<button id="ledoff" type="button" onclick="buttonclick(this);">Off</button>
+</body>
+</html>

@@ -1,0 +1,282 @@
+<!DOCTYPE html><html><head><title>Smarte RGB LED</title><meta name='mobile-web-app-capable' content='yes' />
+<meta charset="utf-8" name='viewport' content='width=device-width' />
+<style>
+  h1{
+  font-family: Calibri, sans-serif;
+  color:white;
+  }
+  body{
+  font-family: Calibri, sans-serif;
+  color:white;
+  }
+  link{
+  color:grey;
+  text-decoration:none;
+  }
+  </style>
+</head>
+<body  onload="init()" style='margin: 0px; padding: 0px;background-color:#333333' >
+<table width="600">
+<tr>
+  <td>
+    <h1>&emsp;Smarte LED<br>
+    <font style='color:lightblue'>
+     &emsp;W&auml;hle die Farbe!
+    </font></h1>
+  </td>
+  <td align="right">
+	<!-- ******************************* 
+			FH Logo    
+			URI encoded
+			https://websemantics.uk/tools/image-to-data-uri-converter/
+		 *******************************-->
+  <img alt="logofh" width="250" height="80" src="data:image/png;base64,
+	iVBORw0KGgoAAAANSUhEUgAAAPoAAABQCAMAAAAHtZiHAAAC/VBMVEUwMi8zMTU1MTAvMzUxMzAyMzE2MjEyNjg1NT03NTg1NjQ5NTQ3ODY1OTs6ODs0Ozc4OUE5Ojg2PDM6OzkyPT0+Ojk3PD48Pjs1QEE7P0FCPj05QT0+QD08QE0/QT46QVM7Qkg3RkA3RktDREI2
+	SEdBRUcuS0Y8R0hIRENFR0VISkdBTExDS1IuUk4/TlNPS0k+UE9LTUo8UV42VFc8VFFPUE5UT05CVFM3VmNFU1g2V19AVlpRU1BYU1IyXWQ7W2lUVlNKWF5KXFxXWVZHXWFEX1pMXGdAYGNFX2hgW1pbXVpIZl48a2plYF9DaWo+aXtgYl9MZ2pPZ2VNZ3FHaXFIamZM
+	anhoZGJkZmM5cIFTanpPbXBSbHZIb3xLcHBMb3dnaWZtaGdMcmhIcnlqbGlKdXJOdYJSdX1tb2xIeIRzbm1XdYRReHlOe21GfmlTd4tNeoBwcm9NeoxPfXxUe4hNfop0dnN6dXNTf5FMgpNIh3NXgYZ5e3hThI9Mh5JShouAe3p8fntUiolXh59fiI1/gX5dipxWjJ2G
+	gYCDhIFZkoqGh4RdkpdZlJNVlKRZlJ5QlqtNmKaJi4iSjYyNj4xqmppWoK5To7hVor1mn6pjn7Zco6aTlZJdorhfo6xko7OWmJVap7VdqcRgqrmanJlerLRZrrxNsclmq8Gdn5xasMOgop9otLCkpqNYu9NXvc5gu85suMpsucGoqqZou8lRwdhwvLerrapjvtxlwsJk
+	xMlhxNRiw9yvsa5Qyedqw9ZbxuVPzOKztbJazNxcy+Jly9xQ0PRYz+xjzOthz+e4urdX0ulyzN9b0u9m0eNT2PS9v7xg1vNe2O5p1u5O3f/Bw8Bq2ehb3/th3+9k3vTGyMRb4/hS5f9p4edv4PFa5vRl4/LKzMlh6P1p5/ZX7f/O0c1t6vlj7vx37PXT1dJb9f9v8Pdn
+	8v9n9v3Y2tZd+/9q+f9b//3c3ttr//7i5OHl5+To6ubp6+ju8O3x8/Dz9fL2+PT4+/f8/f/9//wBdHLcAAAAAWJLR0QAiAUdSAAAAAlwSFlzAAALEgAACxIB0t1+/AAAAAd0SU1FB+ELCQkaCKozVXoAABXxSURBVHja7Zt9fJtVvcCDfX437uEJULM1HYYwCbNrhoyK
+	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">
+  </td>
+</tr>
+</table>
+
+<!-- *****************************
+       Color Canvas für Farbwahl
+	 ***************************** -->
+<p>
+<canvas id='colorspace' style='border:2px solid #FFFF00;'></canvas>
+</p>
+
+<!-- *****************************
+       Canvas für Servosteuerung
+	 ***************************** -->
+
+<div style='float:left'>
+<canvas id='servo' width='200' height='200' style='border:2px solid #cec2b5'></canvas>
+</div>
+
+<!-- *******************************
+        Buttons
+     ******************************* -->
+<font style='color:lightblue' size='5'><b>&emsp;LED-Effekt:</b></font><br>
+&emsp;&emsp;<input onchange="sendEffect(0)" type="radio" name="ColorFade" value="static" checked> Statisch<br>
+&emsp;&emsp;<input onchange="sendEffect(1)" type="radio" name="ColorFade" value="fade"> Fade<br>
+&emsp;&emsp;<input onchange="sendEffect(2)" type="radio" name="ColorFade" value="blink"> Blink <br>
+<font style='color:lightblue' size='5'><b>&emsp;Servos</b></font><br>
+&emsp;&emsp;<input onchange="sendMove(0)" type="radio" name="Movement" value="static" checked> Statisch<br>
+&emsp;&emsp;<input onchange="sendMove(2)" type="radio" name="Movement" value="cross"> Kreuz<br>
+&emsp;&emsp;<input onchange="sendMove(1)" type="radio" name="Movement" value="circle"> Acht <br>
+&emsp;&emsp;<input type="button" onclick="sendAPSave()" name="APsave" value="Default setzen">
+<div style="clear:both;"><br>
+Ein Projekt zum MGI-Labortag WS2019/2020<br>
+<a href="http://www4.fh-swf.de/de/home/ueber_uns/standorte/is/fb_m/doz_m/profs_m/ellermeyer/ellermeyer_1.php" style="color:orange;text-decoration:none">
+&copy; FH-SWF - Mechatronik - Prof. Ellermeyer</a> &emsp;&emsp;&emsp;<a href="config.html" style="color:orange;text-decoration:none">Konfiguration</a>
+</div>
+</body>
+<!-- **********************************************************
+       JAVA SCRIPT 
+	 ********************************************************** -->
+	 
+<script type='text/javascript'>
+var websock;	// WebSocket für Rückkanal
+var sx=100;		// Mittelpunkt Servo-Steuerung
+var sy=100;
+var c_servo;		// Servo-Canvas
+var ctx_servo;		
+var canvas;			// Color-Chooser Canvas
+var ctx;	
+var mywidth=600;	// Weite des Color-Choosers
+var myheight=320;	// Höhe des Color-Choosers
+var lastsend;		// Wann wurde das letzte WebSocket Kommando gesendet ctime
+var send_interval = 100;  // Alle 100ms neuen Wert zulassen
+
+
+// Wird beim Laden der Seite aufgerufen
+function init()
+{
+	var now = new Date();
+	
+	// die Änderungen werden per WebSocket auf Port 81 übertragen
+    websock = new WebSocket('ws://' + window.location.hostname + ':81/');
+    //websock = new WebSocket('ws://' + '192.168.11.203' + ':81/');
+    websock.onopen = function(evt) { console.log('websock open'); };
+    websock.onclose = function(evt) { console.log('websock close'); };
+    websock.onerror = function(evt) { console.log(evt); };
+    websock.onmessage = function(evt) { console.log(evt);};
+
+	// Servo-Canvans zeichnen
+	c_servo = document.getElementById('servo');
+	ctx_servo = c_servo.getContext('2d');
+
+	// Farbwähler-Canvas zeichnen
+	canvas = document.getElementById('colorspace');
+	ctx = canvas.getContext('2d');
+	
+	resizeCanvas();
+	
+	// Event-Listener
+	window.addEventListener('resize', resizeCanvas, false);
+	canvas.addEventListener('click', function(event) { handleEvent(event.clientX, event.clientY, true);}, false);
+    canvas.addEventListener('touchmove', function(event) { handleEvent(event.touches[0].clientX, event.touches[0].clientY);}, false);
+    c_servo.addEventListener('click', function(event)  { servoEvent(event.clientX, event.clientY, true);}, false);
+    c_servo.addEventListener('touchmove', function(event) { servoEvent(event.touches[0].clientX, event.touches[0].clientY);}, false);
+	document.ontouchmove = function(e) {e.preventDefault()};
+	lastsend = now.getTime();
+	console.log(lastsend);
+}
+
+// Zeichnen des Servo-Canvas
+function drawCanvas() 
+	{
+		var colours = ctx.createLinearGradient(0, 0, mywidth, 0);
+		for(var i=0; i <= 360; i+=10) 
+		{
+			colours.addColorStop(i/360, 'hsl(' + i + ', 100%, 50%)');
+		}
+		ctx.fillStyle = colours;
+		ctx.fillRect(0, 0, mywidth, myheight);
+		var luminance = ctx.createLinearGradient(0, 0, 0, ctx.canvas.height);
+		luminance.addColorStop(0, '#ffffff');
+		luminance.addColorStop(0.05, '#ffffff');
+		luminance.addColorStop(0.5, 'rgba(0,0,0,0)');
+		luminance.addColorStop(0.95, '#000000');
+		luminance.addColorStop(1, '#000000');
+		ctx.fillStyle = luminance;
+		ctx.fillRect(0, 0, mywidth, myheight);
+		//-------
+		ctx_servo.fillStyle = 'rgb(206, 194, 181)';
+		ctx_servo.strokeStyle = 'rgb(175, 180, 188)';
+		ctx_servo.beginPath();
+		ctx_servo.moveTo(sx-30,sy+40);
+		ctx_servo.lineTo(sx,sy+70);
+		ctx_servo.lineTo(sx+30,sy+40);
+		ctx_servo.lineTo(sx-30,sy+40);
+		ctx_servo.fill();
+		ctx_servo.beginPath();
+		ctx_servo.moveTo(sx-30,sy-40);
+		ctx_servo.lineTo(sx,sy-70);
+		ctx_servo.lineTo(sx+30,sy-40);
+		ctx_servo.lineTo(sx-30,sy-40);
+		ctx_servo.fill();
+		ctx_servo.closePath();
+		ctx_servo.beginPath();
+		ctx_servo.moveTo(sx-40,sy-30);
+		ctx_servo.lineTo(sx-70,sy);
+		ctx_servo.lineTo(sx-40,sy+30);
+		ctx_servo.lineTo(sx-40,sy-30);
+		ctx_servo.fill();
+		ctx_servo.closePath();
+		ctx_servo.beginPath();
+		ctx_servo.moveTo(sx+40,sy-30);
+		ctx_servo.lineTo(sx+70,sy);
+		ctx_servo.lineTo(sx+40,sy+30);
+		ctx_servo.lineTo(sx+40,sy-30);
+		ctx_servo.fill();
+		ctx_servo.closePath();
+		ctx_servo.beginPath();
+		ctx_servo.arc(sx,sy,20,0,2*Math.PI);
+		ctx_servo.fill();
+		ctx_servo.closePath();
+		ctx_servo.stroke();
+}
+
+// RGB Event
+function handleEvent(clientX, clientY) 
+	{
+		// Zeitpunkt der letzten Übertragung ermitteln und nur neu senden, wenn Zeit verstrichen
+		var now= new Date();
+		if ( (now.getTime()-lastsend) > send_interval)
+		{
+			var rect = canvas.getBoundingClientRect();
+			var data = ctx.getImageData(clientX-rect.left, clientY-rect.top, 1, 1).data;
+
+			var params = [
+			'RGB',data[0],data[1],data[2]
+			].join(';');
+			websock.send(params + ";" );
+			lastsend = now.getTime();
+			//console.log(lastsend);
+		}
+	}
+
+// Servo-Event
+function servoEvent(clientX, clientY) 
+	{
+		// Zeitpunkt der letzten Übertragung ermitteln und nur neu senden, wenn Zeit verstrichen
+		var now= new Date();
+		if ( (now.getTime()-lastsend) > send_interval)
+		{
+		var sx, sy;
+		var rect = c_servo.getBoundingClientRect();
+
+		sx = Math.round(clientX-rect.left);
+		sy = Math.round(clientY-rect.top);
+
+			var params = [
+			'SERVO',sx,sy,0
+			].join(';');
+			websock.send(params+";");
+			lastsend = now.getTime();
+			//console.log(lastsend);
+		}
+	}
+
+
+function sendEffect(effect) {
+		websock.send("EFFECT;" + effect + ";");
+}
+
+function sendMove(move) {
+		websock.send("MOVE;" + move + ";");
+}
+function sendAPSave() {
+		websock.send("APSAVE;");
+}
+function resizeCanvas() 
+	{
+		//canvas.width = window.innerWidth;
+		//canvas.height = window.innerHeight;
+		canvas.width=600;
+		canvas.height=240;
+		drawCanvas();
+	}
+</script></html>
